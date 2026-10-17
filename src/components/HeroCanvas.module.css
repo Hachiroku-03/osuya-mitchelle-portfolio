@@ -1,0 +1,150 @@
+/* ==========================================================================
+   Chibi Canvas Component Styles
+   ========================================================================== */
+
+.chibiContainer {
+  width: 100%;
+  height: 100%;
+  min-height: 440px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  user-select: none;
+}
+
+/* Background floating ambient dots */
+.ambientField {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(216, 195, 165, 0.08) 0%,
+    transparent 65%
+  );
+}
+
+/* Stage where the Chibis interact */
+.stage {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 16px;
+  z-index: 2;
+}
+
+/* Individual Chibi Avatar */
+.chibiCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.chibiCard:hover {
+  transform: translateY(-8px) scale(1.06);
+}
+
+/* Role tooltip bubble above head */
+.chibiBubble {
+  position: absolute;
+  top: -24px;
+  background: rgba(13, 13, 13, 0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-highlight);
+  color: var(--color-beige);
+  padding: 3px 10px;
+  border-radius: 9999px;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+}
+
+/* The SVG character wrapper with walking/idle bob animation */
+.chibiSvgWrap {
+  width: 86px;
+  height: 110px;
+  filter: drop-shadow(0 10px 16px rgba(0, 0, 0, 0.5));
+}
+
+/* Soft contact shadow under the character's feet */
+.chibiShadow {
+  width: 54px;
+  height: 8px;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.6) 0%, transparent 70%);
+  border-radius: 50%;
+  margin-top: 2px;
+  animation: shadowPulse 2.4s ease-in-out infinite alternate;
+}
+
+/* Speech / Action indicator when clicked */
+.chibiActionText {
+  margin-top: 8px;
+  font-size: 0.72rem;
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--color-white);
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+/* Interactive Controls below stage */
+.controlsBar {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  background: rgba(13, 13, 13, 0.6);
+  backdrop-filter: blur(8px);
+  padding: 6px 14px;
+  border-radius: 9999px;
+  border: 1px solid rgba(216, 195, 165, 0.15);
+}
+
+.controlBtn {
+  background: transparent;
+  border: none;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px 10px;
+  border-radius: 20px;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.controlBtn:hover, .controlBtnActive {
+  background: var(--beige-subtle);
+  color: var(--color-beige);
+}
+
+/* Animations */
+@keyframes shadowPulse {
+  0% { transform: scale(0.9); opacity: 0.4; }
+  100% { transform: scale(1.15); opacity: 0.7; }
+}
+
+@media (max-width: 500px) {
+  .chibiSvgWrap {
+    width: 68px;
+    height: 90px;
+  }
+  .stage {
+    padding: 0 4px;
+  }
+}

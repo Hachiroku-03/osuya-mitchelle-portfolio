@@ -1,0 +1,253 @@
+/* ==========================================================================
+   Design System & Global Variables
+   Osuya Chioma Mitchelle Portfolio
+   ========================================================================== */
+
+:root {
+  /* Brand Palette from profile.js */
+  --color-black: #0d0d0d;
+  --color-white: #fffdfa;
+  --color-beige: #d8c3a5;
+
+  /* Surface & UI Tones */
+  --bg-primary: #0d0d0d;
+  --bg-secondary: #141414;
+  --bg-card: #181818;
+  --bg-card-hover: #202020;
+  --bg-glass: rgba(13, 13, 13, 0.75);
+
+  /* Accent Variations */
+  --beige-subtle: rgba(216, 195, 165, 0.08);
+  --beige-muted: rgba(216, 195, 165, 0.2);
+  --beige-glow: rgba(216, 195, 165, 0.45);
+
+  /* Typography Colors */
+  --text-primary: #fffdfa;
+  --text-secondary: #b5b0a4;
+  --text-muted: #7d786e;
+
+  /* Borders & Dividers */
+  --border-subtle: rgba(216, 195, 165, 0.14);
+  --border-highlight: rgba(216, 195, 165, 0.35);
+
+  /* Fonts */
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Global Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  line-height: 1.65;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Subtle luxury grain / vignette ambient backdrop */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 10% 15%, rgba(216, 195, 165, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(216, 195, 165, 0.04) 0%, transparent 45%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-beige);
+  color: var(--color-black);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(216, 195, 165, 0.25);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-beige);
+}
+
+/* Typography Helpers */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  color: var(--text-primary);
+  line-height: 1.15;
+}
+
+p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Layout Utilities */
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(20px, 5vw, 48px);
+  padding-right: clamp(20px, 5vw, 48px);
+}
+
+.section-padding {
+  padding-top: clamp(80px, 12vh, 140px);
+  padding-bottom: clamp(80px, 12vh, 140px);
+}
+
+/* Common Section Header Component */
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--color-beige);
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.section-tag::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-beige);
+  box-shadow: 0 0 10px var(--color-beige);
+}
+
+.section-title {
+  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+  font-weight: 400;
+  color: var(--color-white);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.section-title em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 300;
+  color: var(--color-beige);
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin-top: 14px;
+  font-weight: 300;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 14px 30px;
+  border-radius: 40px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: all var(--transition-normal);
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background-color: var(--color-beige);
+  color: var(--color-black);
+  border: 1px solid var(--color-beige);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(216, 195, 165, 0.35);
+  background-color: #e5d4bc;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-white);
+  border: 1px solid var(--border-highlight);
+  backdrop-filter: blur(8px);
+}
+
+.btn-outline:hover {
+  color: var(--color-beige);
+  border-color: var(--color-beige);
+  background-color: var(--beige-subtle);
+  transform: translateY(-2px);
+}
+
+/* Three.js Canvas Container standard positioning */
+.three-canvas-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}

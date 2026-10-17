@@ -1,0 +1,254 @@
+/* ==========================================================================
+   Experience / Disciplines Component Styles
+   ========================================================================== */
+
+.experienceSection {
+  position: relative;
+  padding-top: clamp(80px, 12vh, 130px);
+  padding-bottom: clamp(80px, 12vh, 130px);
+  border-top: 1px solid var(--border-subtle);
+  background-color: var(--bg-primary);
+  overflow: hidden;
+}
+
+/* Subtle background accent glow */
+.experienceSection::after {
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(216, 195, 165, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.headerWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 54px;
+}
+
+/* Filter / Category Pills */
+.filterBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 32px;
+}
+
+.filterBtn {
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  padding: 8px 20px;
+  border-radius: 9999px;
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.filterBtn:hover {
+  color: var(--color-white);
+  border-color: var(--color-beige);
+  background: var(--beige-subtle);
+}
+
+.filterBtn.active {
+  background-color: var(--color-beige);
+  color: var(--color-black);
+  border-color: var(--color-beige);
+  font-weight: 600;
+  box-shadow: 0 4px 16px rgba(216, 195, 165, 0.25);
+}
+
+/* Disciplines Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 22px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-normal);
+}
+
+/* Top accent hairline that lights up on hover */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-beige), transparent);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  background-color: var(--bg-card-hover);
+  border-color: var(--border-highlight);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+}
+
+.indexNumber {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: var(--color-beige);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.iconWrapper {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--beige-subtle);
+  border: 1px solid rgba(216, 195, 165, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-beige);
+  transition: transform var(--transition-fast);
+}
+
+.card:hover .iconWrapper {
+  transform: scale(1.08) rotate(4deg);
+}
+
+.cardCategory {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--color-beige);
+  margin-bottom: 8px;
+  display: block;
+  font-weight: 600;
+}
+
+.cardTitle {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: var(--color-white);
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.cardDescription {
+  font-size: 0.94rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  font-weight: 300;
+}
+
+.cardFooter {
+  margin-top: 26px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.taglineSnippet {
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+}
+
+.actionArrow {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-beige);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(216, 195, 165, 0.15);
+  transition: all var(--transition-fast);
+}
+
+.card:hover .actionArrow {
+  background: var(--color-beige);
+  color: var(--color-black);
+  transform: translate(3px, -3px);
+}
+
+/* Bottom Highlight Banner */
+.bottomCallout {
+  margin-top: 60px;
+  text-align: center;
+  padding: 30px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(216, 195, 165, 0.03) 100%);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.calloutText {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.calloutHeading {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  color: var(--color-white);
+}
+
+.calloutSub {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .bottomCallout {
+    flex-direction: column;
+    text-align: center;
+  }
+  .calloutText {
+    text-align: center;
+  }
+}

@@ -1,0 +1,222 @@
+/* ==========================================================================
+   About Component Styles
+   ========================================================================== */
+
+.aboutSection {
+  position: relative;
+  padding-top: clamp(80px, 12vh, 130px);
+  padding-bottom: clamp(80px, 12vh, 130px);
+  border-top: 1px solid var(--border-subtle);
+  background: radial-gradient(
+    circle at 85% 30%,
+    rgba(216, 195, 165, 0.035) 0%,
+    transparent 60%
+  );
+  overflow: hidden;
+}
+
+.aboutGrid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 70px;
+  align-items: start;
+}
+
+/* Left Narrative Column */
+.narrativeCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.leadParagraph {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--color-white);
+  margin-top: 16px;
+  margin-bottom: 28px;
+}
+
+.leadParagraph em {
+  color: var(--color-beige);
+  font-style: italic;
+}
+
+.bodyParagraphs {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.paragraph {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--text-secondary);
+  font-weight: 300;
+}
+
+.quoteBlock {
+  margin-top: 36px;
+  padding: 24px 28px;
+  border-left: 2px solid var(--color-beige);
+  background: rgba(216, 195, 165, 0.04);
+  border-radius: 0 16px 16px 0;
+}
+
+.quoteText {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--color-white);
+  line-height: 1.4;
+}
+
+.quoteAuthor {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--color-beige);
+}
+
+/* Right Interactive Matrix / Stats Column */
+.matrixCol {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.statCard {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  padding: 28px 24px;
+  transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.statCard:hover {
+  border-color: var(--color-beige);
+  transform: translateY(-4px);
+  background-color: var(--bg-card-hover);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.4);
+}
+
+.statNumber {
+  font-family: var(--font-serif);
+  font-size: 3.2rem;
+  font-weight: 400;
+  color: var(--color-beige);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.statTitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-white);
+  margin-bottom: 4px;
+}
+
+.statDesc {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* Pillars list */
+.pillarsContainer {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.02) 0%, rgba(216, 195, 165, 0.02) 100%);
+  border: 1px solid var(--border-subtle);
+  border-radius: 24px;
+  padding: 30px;
+}
+
+.pillarsTitle {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  color: var(--color-white);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pillarsTitle svg {
+  color: var(--color-beige);
+}
+
+.pillarItems {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.pillarItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(216, 195, 165, 0.1);
+  border-radius: 12px;
+  transition: all var(--transition-fast);
+}
+
+.pillarItem:hover {
+  border-color: var(--border-highlight);
+  background: var(--beige-subtle);
+  transform: translateX(4px);
+}
+
+.pillarIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--beige-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-beige);
+  flex-shrink: 0;
+}
+
+.pillarText {
+  display: flex;
+  flex-direction: column;
+}
+
+.pillarName {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-white);
+}
+
+.pillarSub {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .aboutGrid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+@media (max-width: 540px) {
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+}
